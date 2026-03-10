@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VybeCentral – Lagos, Nigeria · Music · Entertainment · Creators</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8960C;
+  --gold-bright: #F0B429;
+  --gold-pale: #FDE68A;
+  --ember: #B91C1C;
+  --forest: #166534;
+  --ink: #080808;
+  --ink2: #111111;
+  --ink3: #1C1C1C;
+  --ink4: #252525;
+  --sand: #F5E6C8;
+  --sand2: #EDD89A;
+  --muted: rgba(245,230,200,0.45);
+  --mutedlo: rgba(245,230,200,0.22);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--sand);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE OVERLAY ─── */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:9999;
+  opacity:0.4;
+}
+
+/* ─── ỌJỌ KENTE STRIPE ─── */
+.kente {
+  height:6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gold-bright) 0 18px,
+    var(--ember) 18px 36px,
+    var(--forest) 36px 54px,
+    var(--gold-bright) 54px 72px,
+    #000 72px 78px
+  );
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 6px;
+  width: 100%;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 64px;
+  background: rgba(8,8,8,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200,150,12,0.15);
+}
+
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.nav-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.35rem;
+  color: var(--gold-bright);
+  letter-spacing: 1px;
+}
+
+.nav-brand-loc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover { color: var(--gold-bright); }
+
+.nav-reserve {
+  background: var(--gold);
+  color: var(--ink) !important;
+  padding: 11px 26px;
+  border-radius: 1px;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  transition: background 0.25s !important;
+}
+
+.nav-reserve:hover { background: var(--gold-bright) !important; color: var(--ink) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 64px;
+  gap: 0;
+}
+
+/* Afro-geometric background shapes */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,12,0.12);
+}
+
+.hc1 { width:600px; height:600px; top:-100px; right:-150px; }
+.hc2 { width:400px; height:400px; top:50px; right:-50px; border-color: rgba(185,28,28,0.08); }
+.hc3 { width:200px; height:200px; top:250px; right:150px; border-color: rgba(22,101,52,0.1); }
+
+.hero-adinkra {
+  position: absolute;
+  color: var(--gold);
+  opacity: 0.04;
+  font-size: 240px;
+  font-family: serif;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: spinSlow 30s linear infinite;
+  user-select: none;
+}
+
+@keyframes spinSlow {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+.hero-left {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  z-index: 2;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(200,150,12,0.1);
+  border: 1px solid rgba(200,150,12,0.3);
+  border-radius: 100px;
+  padding: 8px 18px 8px 10px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: riseIn 0.7s 0.1s forwards;
+}
+
+.hero-pill-dot {
+  width: 8px; height: 8px;
+  background: var(--gold-bright);
+  border-radius: 50%;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.5; transform:scale(0.7); }
+}
+
+.hero-pill span {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(3.6rem, 6.5vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: riseIn 0.7s 0.25s forwards;
+}
+
+.hero-h1 .line-vybe {
+  display: block;
+  background: linear-gradient(100deg, var(--gold-bright) 0%, var(--gold-pale) 50%, var(--gold-bright) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+.hero-h1 .line-central {
+  display: block;
+  color: var(--sand);
+  -webkit-text-fill-color: var(--sand);
+}
+
+.hero-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--muted);
+  max-width: 440px;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: riseIn 0.7s 0.4s forwards;
+}
+
+.hero-body strong { color: var(--gold-bright); font-weight: 500; }
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: riseIn 0.7s 0.55s forwards;
+}
+
+@keyframes riseIn {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+  padding: 16px 36px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.btn-gold::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.4s;
+}
+
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200,150,12,0.35); }
+.btn-gold:hover::after { transform: translateX(120%) skewX(-15deg); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--sand);
+  padding: 15px 36px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(245,230,200,0.25);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.btn-ghost:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+
+/* Hero right visual */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+}
+
+.hero-viz {
+  position: relative;
+  width: 380px;
+  height: 380px;
+}
+
+.hz-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,12,0.2);
+  animation: spin1 20s linear infinite;
+}
+
+.hz-mid {
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(185,28,28,0.25);
+  animation: spin1 14s linear infinite reverse;
+}
+
+.hz-inner {
+  position: absolute;
+  inset: 90px;
+  border-radius: 50%;
+  border: 1px solid rgba(22,101,52,0.3);
+  animation: spin1 8s linear infinite;
+}
+
+@keyframes spin1 { to { transform: rotate(360deg); } }
+
+.hz-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hz-icon { font-size: 64px; filter: drop-shadow(0 0 20px rgba(200,150,12,0.5)); }
+
+.hz-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold-bright);
+  letter-spacing: 2px;
+}
+
+/* Orbit dots */
+.orbit-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+/* Equalizer bars around */
+.eq-bars {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 50px;
+}
+
+.eq-bar {
+  width: 5px;
+  background: linear-gradient(to top, var(--ember), var(--gold-bright));
+  border-radius: 2px;
+  animation: eqAnim 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes eqAnim {
+  from { transform: scaleY(0.2); }
+  to   { transform: scaleY(1); }
+}
+
+/* Flag accent */
+.ng-flag-stripe {
+  display: flex;
+  gap: 3px;
+  margin-top: 36px;
+  align-items: center;
+  opacity: 0;
+  animation: riseIn 0.7s 0.7s forwards;
+}
+
+.flag-bar { width: 28px; height: 4px; border-radius: 2px; }
+.flag-bar.g { background: var(--forest); }
+.flag-bar.w { background: rgba(245,230,200,0.7); }
+
+.flag-text {
+  font-size: 0.62rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--mutedlo);
+  margin-left: 10px;
+}
+
+/* ─── SECTION SHARED ─── */
+.section-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-tag::before {
+  content:'';
+  display:block;
+  width:28px;
+  height:1px;
+  background: var(--gold);
+}
+
+.section-h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  color: var(--sand);
+  margin-bottom: 20px;
+}
+
+/* ─── ABOUT ─── */
+.about {
+  background: var(--ink2);
+  padding: 110px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about::after {
+  content: 'NG';
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 320px;
+  font-weight: 900;
+  color: rgba(200,150,12,0.025);
+  right: -20px;
+  bottom: -60px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.about-text p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 22px;
+  font-size: 0.97rem;
+}
+
+.about-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0;
+}
+
+.country-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ink4);
+  border: 1px solid rgba(200,150,12,0.15);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: var(--muted);
+  transition: border-color 0.25s;
+}
+
+.country-chip:hover { border-color: var(--gold); color: var(--sand); }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.astat {
+  background: var(--ink3);
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.astat:hover { background: var(--ink4); }
+
+.astat::before {
+  content:'';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, var(--gold-bright), var(--ember));
+  transition: height 0.4s;
+}
+
+.astat:hover::before { height: 100%; }
+
+.astat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--gold-bright);
+  display: block;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.astat-lbl {
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--mutedlo);
+}
+
+/* ─── SPACES ─── */
+.spaces {
+  padding: 110px 0;
+  background: var(--ink);
+}
+
+.spaces-head {
+  text-align: center;
+  padding: 0 64px;
+  margin-bottom: 64px;
+}
+
+.spaces-head p.desc {
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.97rem;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3px;
+}
+
+.room {
+  background: var(--ink3);
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.room:hover { transform: translateY(-8px); z-index: 3; }
+
+/* Pattern overlays unique to each room */
+.room-pattern {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s;
+}
+
+.room:nth-child(1) .room-pattern {
+  background:
+    linear-gradient(160deg, rgba(185,28,28,0.15) 0%, rgba(8,8,8,0.95) 70%),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px, transparent 18px,
+      rgba(200,150,12,0.06) 18px, rgba(200,150,12,0.06) 19px
+    );
+}
+
+.room:nth-child(2) .room-pattern {
+  background:
+    linear-gradient(160deg, rgba(200,150,12,0.2) 0%, rgba(8,8,8,0.95) 70%),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0px, transparent 18px,
+      rgba(22,101,52,0.06) 18px, rgba(22,101,52,0.06) 19px
+    );
+}
+
+.room:nth-child(3) .room-pattern {
+  background:
+    linear-gradient(160deg, rgba(22,101,52,0.15) 0%, rgba(8,8,8,0.95) 70%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 18px,
+      rgba(200,150,12,0.05) 18px, rgba(200,150,12,0.05) 19px
+    );
+}
+
+.room-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.room:nth-child(1) .room-glow { background: rgba(185,28,28,0.3); top:-50px; right:-50px; }
+.room:nth-child(2) .room-glow { background: rgba(200,150,12,0.3); top:-50px; left:-50px; }
+.room:nth-child(3) .room-glow { background: rgba(22,101,52,0.3); top:-50px; right:-50px; }
+.room:hover .room-glow { opacity: 1; }
+
+.room-emoji {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  font-size: 70px;
+  opacity: 0.15;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.room:hover .room-emoji { opacity: 0.35; transform: scale(1.1) rotate(-5deg); }
+
+.room-body {
+  position: relative;
+  z-index: 2;
+  padding: 40px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  background: linear-gradient(to top, rgba(8,8,8,0.98) 40%, transparent 100%);
+  margin-top: auto;
+}
+
+.room-tag {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-family: 'Syne', sans-serif;
+}
+
+.room-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--sand);
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+
+.room-desc {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.room-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.feat-tag {
+  background: rgba(200,150,12,0.08);
+  border: 1px solid rgba(200,150,12,0.2);
+  padding: 4px 12px;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border-radius: 2px;
+}
+
+.room-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(245,230,200,0.08);
+  padding-top: 20px;
+}
+
+.room-price .amt {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold-bright);
+}
+
+.room-price .unit {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mutedlo);
+  display: block;
+}
+
+.room-cta {
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 12px 22px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.room-cta:hover { background: var(--gold-bright); transform: scale(1.03); }
+
+/* ─── EXPERIENCE STRIP ─── */
+.exp-strip {
+  background: var(--ink2);
+  padding: 80px 64px;
+  overflow: hidden;
+}
+
+.exp-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+}
+
+.exp-card {
+  background: var(--ink3);
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.exp-card:hover { background: var(--ink4); }
+
+.exp-card::after {
+  content:'';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--ember));
+  transform: scaleX(0);
+  transition: transform 0.35s;
+  transform-origin: left;
+}
+
+.exp-card:hover::after { transform: scaleX(1); }
+
+.exp-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+
+.exp-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 8px;
+}
+
+.exp-desc {
+  font-size: 0.78rem;
+  color: var(--mutedlo);
+  line-height: 1.6;
+}
+
+/* ─── VIBE MANIFESTO ─── */
+.manifesto {
+  padding: 130px 64px;
+  background: var(--ink);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.manifesto-bg-text {
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 22vw;
+  font-weight: 900;
+  color: rgba(200,150,12,0.025);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.manifesto-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.manifesto-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--sand);
+  margin-bottom: 32px;
+}
+
+.manifesto-quote em {
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+.kente-divider {
+  width: 120px;
+  height: 6px;
+  margin: 0 auto 32px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gold-bright) 0 12px,
+    var(--ember) 12px 24px,
+    var(--forest) 24px 36px
+  );
+  border-radius: 3px;
+}
+
+.manifesto-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 48px;
+}
+
+/* ─── BOOKING ─── */
+.booking {
+  background: var(--ink2);
+  padding: 110px 64px;
+}
+
+.booking-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.booking-left p {
+  color: var(--muted);
+  line-height: 1.85;
+  font-size: 0.95rem;
+  margin-bottom: 36px;
+}
+
+.contact-list { display: flex; flex-direction: column; gap: 18px; }
+
+.citem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.citem-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--ink3);
+  border: 1px solid rgba(200,150,12,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.social-btn {
+  width: 42px;
+  height: 42px;
+  background: var(--ink3);
+  border: 1px solid rgba(200,150,12,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  text-decoration: none;
+}
+
+.social-btn:hover { border-color: var(--gold); background: rgba(200,150,12,0.08); }
+
+/* Form */
+.bform { display: flex; flex-direction: column; gap: 18px; }
+
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.fg { display: flex; flex-direction: column; gap: 8px; }
+
+.flabel {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.finput, .fselect, .ftextarea {
+  background: var(--ink3);
+  border: 1px solid rgba(245,230,200,0.1);
+  color: var(--sand);
+  padding: 15px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.25s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.finput:focus, .fselect:focus, .ftextarea:focus {
+  border-color: var(--gold);
+  background: rgba(200,150,12,0.04);
+}
+
+.finput::placeholder { color: rgba(245,230,200,0.2); }
+.ftextarea { resize: vertical; min-height: 110px; }
+
+.fselect { cursor: pointer; }
+.fselect option { background: #1c1c1c; }
+
+.submit-btn {
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  padding: 20px 36px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(200,150,12,0.4);
+  background: var(--gold-bright);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(200,150,12,0.1);
+  padding: 60px 64px 28px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold-bright);
+}
+
+.footer-brand-sub {
+  font-size: 0.6rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--mutedlo);
+  margin-top: 4px;
+}
+
+.footer-links-col h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.footer-links-col a {
+  color: var(--mutedlo);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.25s;
+}
+
+.footer-links-col a:hover { color: var(--gold-bright); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(245,230,200,0.06);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(245,230,200,0.2);
+  letter-spacing: 1px;
+}
+
+.footer-flag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flag-mini { display: flex; gap: 2px; }
+.flag-mini span { display: block; width: 14px; height: 10px; }
+.flag-mini .g { background: #008751; }
+.flag-mini .w { background: #fff; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 0 24px; text-align: center; }
+  .hero-right { display: none; }
+  .hero-pill { margin: 0 auto 32px; }
+  .hero-body { max-width: 100%; }
+  .hero-actions { justify-content: center; }
+  .ng-flag-stripe { justify-content: center; }
+  .about, .booking { padding: 80px 24px; }
+  .about-inner, .booking-inner { grid-template-columns: 1fr; gap: 50px; }
+  .exp-grid { grid-template-columns: repeat(2, 1fr); }
+  .rooms { grid-template-columns: 1fr; }
+  .manifesto { padding: 80px 24px; }
+  .spaces-head { padding: 0 24px; }
+  footer { padding: 50px 24px 24px; }
+  .footer-top { flex-direction: column; }
+  .exp-strip { padding: 80px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="kente"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-name">VybeCentral</div>
+    <div class="nav-brand-loc">Lagos, Nigeria · Open to All Africa</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#spaces">Spaces</a></li>
+    <li><a href="#about">Story</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#booking" class="nav-reserve">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-circle hc1"></div>
+    <div class="hero-circle hc2"></div>
+    <div class="hero-circle hc3"></div>
+    <div class="hero-adinkra">✦</div>
+  </div>
+
+  <div class="hero-left">
+    <div class="hero-pill">
+      <div class="hero-pill-dot"></div>
+      <span>Now Open · Lagos, Nigeria</span>
+    </div>
+
+    <h1 class="hero-h1">
+      <span class="line-vybe">Vybe</span>
+      <span class="line-central">Central</span>
+    </h1>
+
+    <p class="hero-body">
+      Lagos' premier <strong>Afro entertainment hub</strong> — where Nigeria's sound meets world-class production. Book a studio session, spin live on the decks, or stay the night and keep creating.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#booking" class="btn-gold">Reserve Your Space</a>
+      <a href="#spaces" class="btn-ghost">See What's Inside</a>
+    </div>
+
+    <div class="ng-flag-stripe">
+      <div class="flag-bar g"></div>
+      <div class="flag-bar w"></div>
+      <div class="flag-bar g"></div>
+      <span class="flag-text">Proudly Nigerian · Pan-African</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-viz">
+      <div class="hz-outer"></div>
+      <div class="hz-mid"></div>
+      <div class="hz-inner"></div>
+      <div class="hz-center">
+        <div class="hz-icon">🎙️</div>
+        <div class="hz-label">Lagos Sound</div>
+      </div>
+      <div class="eq-bars" id="eqbars"></div>
+    </div>
+  </div>
+</section>
+
+<div class="kente"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-h2">Born in Lagos.<br>Built for Africa.</h2>
+      <p>What began as a duplex became a movement. The ground floor is home — the upstairs is <em>yours</em>. Three premium spaces crafted for musicians, DJs, and creators who live and breathe Afro culture.</p>
+      <p>From Afrobeats to Amapiano, Afro-soul to highlife — if it has African rhythm, this is your studio. We are rooted in Nigeria but our doors are open to every corner of the continent and diaspora.</p>
+
+      <div class="about-flags">
+        <div class="country-chip">🇳🇬 Nigeria</div>
+        <div class="country-chip">🇬🇭 Ghana</div>
+        <div class="country-chip">🇰🇪 Kenya</div>
+        <div class="country-chip">🇿🇦 South Africa</div>
+        <div class="country-chip">🇸🇳 Senegal</div>
+        <div class="country-chip">🇨🇲 Cameroon</div>
+        <div class="country-chip">🌍 All Africa</div>
+      </div>
+
+      <a href="#booking" class="btn-gold">Start Your Session</a>
+    </div>
+
+    <div class="about-stats">
+      <div class="astat">
+        <span class="astat-num">24/7</span>
+        <span class="astat-lbl">Always Open</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">3</span>
+        <span class="astat-lbl">Premium Spaces</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">100%</span>
+        <span class="astat-lbl">Afro Culture</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">∞</span>
+        <span class="astat-lbl">Creative Energy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACES -->
+<section class="spaces" id="spaces">
+  <div class="spaces-head">
+    <div class="section-tag" style="justify-content:center;">What We Offer</div>
+    <h2 class="section-h2">Three Spaces.<br>Infinite Potential.</h2>
+    <p class="desc">Professional-grade rooms designed for creators who take their craft seriously. Every session priced in USD — accessible to Africans everywhere.</p>
+  </div>
+
+  <div class="rooms">
+    <!-- Studio -->
+    <div class="room">
+      <div class="room-pattern"></div>
+      <div class="room-glow"></div>
+      <div class="room-emoji">🎙️</div>
+      <div class="room-body">
+        <div class="room-tag">Recording Studio</div>
+        <div class="room-title">Sound<br>Studio</div>
+        <div class="room-desc">Pro-grade recording booth with acoustic treatment, mixing console, reference monitors, and a curated Afrobeats/Afropop sound library. Your music, perfected.</div>
+        <div class="room-features">
+          <span class="feat-tag">Acoustic Treated</span>
+          <span class="feat-tag">Pro Mixing Board</span>
+          <span class="feat-tag">Vocal Booth</span>
+          <span class="feat-tag">Reference Monitors</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="amt">$12</span>
+            <span class="unit">/ hour</span>
+          </div>
+          <button class="room-cta" onclick="scrollTo('booking')">Book Studio</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DJ Room -->
+    <div class="room">
+      <div class="room-pattern"></div>
+      <div class="room-glow"></div>
+      <div class="room-emoji">🎧</div>
+      <div class="room-body">
+        <div class="room-tag">Live Streaming · DJ</div>
+        <div class="room-title">DJ<br>Lounge</div>
+        <div class="room-desc">Pioneer CDJ setup, full light rig, and a professional live-stream station ready to broadcast your set to the world. Drop heat from Lagos to every corner of Africa.</div>
+        <div class="room-features">
+          <span class="feat-tag">Pioneer CDJs</span>
+          <span class="feat-tag">Live Stream Ready</span>
+          <span class="feat-tag">Full Light Rig</span>
+          <span class="feat-tag">Soundproofed</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="amt">$10</span>
+            <span class="unit">/ hour</span>
+          </div>
+          <button class="room-cta" onclick="scrollTo('booking')">Book DJ Room</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guest Room -->
+    <div class="room">
+      <div class="room-pattern"></div>
+      <div class="room-glow"></div>
+      <div class="room-emoji">🌙</div>
+      <div class="room-body">
+        <div class="room-tag">Overnight Stay</div>
+        <div class="room-title">Creator's<br>Suite</div>
+        <div class="room-desc">Sometimes the session runs late — or inspiration hits at 3am. Our Afro-chic guest suite lets you rest and wake up ready to create again. No need to go home.</div>
+        <div class="room-features">
+          <span class="feat-tag">Afro-Chic Interior</span>
+          <span class="feat-tag">En Suite Bath</span>
+          <span class="feat-tag">High-Speed WiFi</span>
+          <span class="feat-tag">Breakfast Optional</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price">
+            <span class="amt">$35</span>
+            <span class="unit">/ night</span>
+          </div>
+          <button class="room-cta" onclick="scrollTo('booking')">Reserve Suite</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="kente"></div>
+
+<!-- EXPERIENCE -->
+<section class="exp-strip" id="experience">
+  <div class="exp-inner">
+    <div class="section-tag">Why VybeCentral</div>
+    <h2 class="section-h2">The Full Experience</h2>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <span class="exp-icon">🌍</span>
+        <div class="exp-title">Pan-African</div>
+        <div class="exp-desc">Open to creators from every African nation and the diaspora worldwide.</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">📡</span>
+        <div class="exp-title">Stream Live</div>
+        <div class="exp-desc">Full streaming infrastructure for DJs and performers. Go live, reach the world.</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🎵</span>
+        <div class="exp-title">Afro Sound</div>
+        <div class="exp-desc">Every instrument, plugin, and library curated for African genres.</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">💵</span>
+        <div class="exp-title">USD Pricing</div>
+        <div class="exp-desc">Universal dollar pricing — fair and transparent for all Africans.</div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-icon">🔒</span>
+        <div class="exp-title">Secure & Safe</div>
+        <div class="exp-desc">Private, gated property. Your session, your creative space, fully secured.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-bg-text">VYBE</div>
+  <div class="manifesto-inner">
+    <div class="section-tag" style="justify-content:center;">Our Belief</div>
+    <blockquote class="manifesto-quote">
+      "African music doesn't need to go anywhere to be <em>world-class</em>. The world needs to come to us."
+    </blockquote>
+    <div class="kente-divider"></div>
+    <p class="manifesto-sub">VybeCentral exists to give Nigerian and African creators a space that matches their ambition — professional, beautiful, and unapologetically rooted in who we are.</p>
+    <a href="#booking" class="btn-gold">Claim Your Session Today</a>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-left">
+      <div class="section-tag">Reservations</div>
+      <h2 class="section-h2">Book<br>Your Space</h2>
+      <p>Ready to create? Fill out the form and we'll confirm your booking within a few hours. Sessions available 7 days a week from early morning to late night.</p>
+      <div class="contact-list">
+        <div class="citem">
+          <div class="citem-icon">📍</div>
+          Lagos, Nigeria (Address on confirmation)
+        </div>
+        <div class="citem">
+          <div class="citem-icon">📞</div>
+          WhatsApp bookings welcome
+        </div>
+        <div class="citem">
+          <div class="citem-icon">✉️</div>
+          hello@vybecentral.com
+        </div>
+        <div class="citem">
+          <div class="citem-icon">🕐</div>
+          Open Daily · 7AM – 2AM
+        </div>
+      </div>
+      <div class="social-row">
+        <a class="social-btn" href="#">📸</a>
+        <a class="social-btn" href="#">🎵</a>
+        <a class="social-btn" href="#">▶️</a>
+        <a class="social-btn" href="#">💬</a>
+      </div>
+    </div>
+
+    <form class="bform" onsubmit="handleBook(event)">
+      <div class="frow">
+        <div class="fg">
+          <label class="flabel">First Name</label>
+          <input class="finput" type="text" placeholder="Chukwuemeka" required>
+        </div>
+        <div class="fg">
+          <label class="flabel">Last Name</label>
+          <input class="finput" type="text" placeholder="Adeyemi" required>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="flabel">Email Address</label>
+        <input class="finput" type="email" placeholder="you@email.com" required>
+      </div>
+      <div class="fg">
+        <label class="flabel">Phone / WhatsApp</label>
+        <input class="finput" type="tel" placeholder="+234 800 000 0000">
+      </div>
+      <div class="fg">
+        <label class="flabel">Country</label>
+        <select class="fselect finput">
+          <option>🇳🇬 Nigeria</option>
+          <option>🇬🇭 Ghana</option>
+          <option>🇰🇪 Kenya</option>
+          <option>🇿🇦 South Africa</option>
+          <option>🇸🇳 Senegal</option>
+          <option>🇨🇲 Cameroon</option>
+          <option>🌍 Other African Country</option>
+          <option>✈️ Diaspora</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="flabel">Select Space</label>
+        <select class="fselect finput">
+          <option>🎙️ Sound Studio — $12/hr</option>
+          <option>🎧 DJ Lounge — $10/hr</option>
+          <option>🌙 Creator's Suite — $35/night</option>
+          <option>🎙️+🎧 Studio + DJ Combo — ask for rate</option>
+        </select>
+      </div>
+      <div class="frow">
+        <div class="fg">
+          <label class="flabel">Preferred Date</label>
+          <input class="finput" type="date" required>
+        </div>
+        <div class="fg">
+          <label class="flabel">Duration</label>
+          <input class="finput" type="text" placeholder="e.g. 3 hours / overnight">
+        </div>
+      </div>
+      <div class="fg">
+        <label class="flabel">Tell Us About Your Session</label>
+        <textarea class="ftextarea finput" placeholder="Recording? DJ stream? Collab? Overnight stay? Let us know..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Booking Request ✦</button>
+    </form>
+  </div>
+</section>
+
+<div class="kente"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">VybeCentral</div>
+      <div class="footer-brand-sub">Music ✦ Entertainment ✦ Creators</div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#spaces">Spaces</a></li>
+        <li><a href="#booking">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Spaces</h4>
+      <ul>
+        <li><a href="#spaces">Sound Studio · $12/hr</a></li>
+        <li><a href="#spaces">DJ Lounge · $10/hr</a></li>
+        <li><a href="#spaces">Creator's Suite · $35/night</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 VybeCentral · Lagos, Nigeria · All Rights Reserved</div>
+    <div class="footer-flag">
+      <div class="flag-mini">
+        <span class="g"></span><span class="w"></span><span class="g"></span>
+      </div>
+      <span style="font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:rgba(245,230,200,0.2); margin-left:8px;">Made with African Pride</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// EQ bars
+const eq = document.getElementById('eqbars');
+if(eq) {
+  for(let i=0;i<16;i++){
+    const b=document.createElement('div');
+    b.className='eq-bar';
+    b.style.height=(Math.random()*40+10)+'px';
+    b.style.animationDelay=(Math.random()*0.8)+'s';
+    b.style.animationDuration=(0.5+Math.random()*0.8)+'s';
+    eq.appendChild(b);
+  }
+}
+
+// Room buttons
+document.querySelectorAll('.room-cta').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Form
+function handleBook(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.submit-btn');
+  const orig=btn.textContent;
+  btn.textContent='✦ Sent! We\'ll confirm your session shortly ✦';
+  btn.style.background='#166534';
+  btn.style.color='#fff';
+  setTimeout(()=>{
+    btn.textContent=orig;
+    btn.style.background='';
+    btn.style.color='';
+  },5000);
+}
+
+// Nav smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
